@@ -1,32 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Brain.hpp                                          :+:      :+:    :+:   */
+/*   Cure.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anarama <anarama@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/11 16:41:07 by anarama           #+#    #+#             */
-/*   Updated: 2024/10/11 16:41:09 by anarama          ###   ########.fr       */
+/*   Created: 2024/10/11 19:32:33 by anarama           #+#    #+#             */
+/*   Updated: 2024/10/11 20:12:14 by anarama          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BRAIN_HPP
-# define BRAIN_HPP
+#ifndef CURE_HPP
+# define CURE_HPP
 
-# include <string>
+# include "AMateria.hpp"
 
-class Brain {
-	private:
-		std::string _ideas[100];
-	
-	public:
-		Brain( void );
-		Brain( const Brain& other);
-		Brain& operator=( const Brain& other );
-		~Brain( void );
+class Cure : public AMateria {
+	public: 
+		Cure( void );
+		Cure( const Cure& other );
+		Cure( std::string const& type );
+		Cure& operator=( const Cure& other );
+		~Cure( void );
 
-		std::string getIdea( int index ) const;
-		void		setIdea( int index, const std::string& idea);
+		AMateria*	clone( void ) const;
+		void		use(ICharacter& target);
 };
 
-#endif // BRAIN_HPP
+#endif // CURE_HPP

@@ -6,25 +6,32 @@
 #    By: anarama <anarama@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/29 15:38:54 by anarama           #+#    #+#              #
-#    Updated: 2024/10/11 22:51:20 by anarama          ###   ########.fr        #
+#    Updated: 2024/10/11 22:50:57 by anarama          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC		:= c++
 
-NAME	:= smart_animals
+NAME	:= materia
 
 CFLAGS	:= -Wall -Wextra -Werror -std=c++98
 
 OBJDIR	:= obj
 
-HEADERS	:=	Animal.hpp Dog.hpp Cat.hpp Brain.hpp
+HEADERS	:=	AMateria.hpp \
+			ICharacter.hpp \
+			Cure.hpp \
+			Ice.hpp \
+			ICharacter.hpp \
+			MateriaSource.hpp
 
 SRC		:=	main.cpp \
-			Animal.cpp \
-			Dog.cpp \
-			Cat.cpp \
-			Brain.cpp
+			AMateria.cpp \
+			ICharacter.cpp \
+			Cure.cpp \
+			Ice.cpp \
+			ICharacter.cpp \
+			MateriaSource.cpp
 
 OBJ		:= $(SRC:%.cpp=$(OBJDIR)/%.o)
 

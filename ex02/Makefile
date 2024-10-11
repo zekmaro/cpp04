@@ -6,13 +6,13 @@
 #    By: anarama <anarama@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/29 15:38:54 by anarama           #+#    #+#              #
-#    Updated: 2024/10/11 16:34:25 by anarama          ###   ########.fr        #
+#    Updated: 2024/10/11 22:51:05 by anarama          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC		:= c++
 
-NAME	:= animals
+NAME	:= abstract_animals
 
 CFLAGS	:= -Wall -Wextra -Werror -std=c++98
 

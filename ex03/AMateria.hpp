@@ -1,37 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   AMateria.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anarama <anarama@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/11 16:39:46 by anarama           #+#    #+#             */
-/*   Updated: 2024/10/11 16:39:47 by anarama          ###   ########.fr       */
+/*   Created: 2024/10/11 16:39:07 by anarama           #+#    #+#             */
+/*   Updated: 2024/10/11 20:00:41 by anarama          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-# define ANIMAL_HPP
+#ifndef AMATERIA_HPP
+# define AMATERIA_HPP
 
 # include <string>
 
-# define DEFAULT_TYPE "default_type"
+# include "ICharacter.hpp"
 
-class Animal {
+# define DEFAULT_TYPE "default"
+
+class AMateria {
 	protected:
 		std::string _type;
 
 	public:
-		Animal( void );
-		Animal( const std::string& type);
-		Animal( const Animal& other );
-		Animal& operator=( const Animal& other );
-		virtual ~Animal( void );
+		AMateria( void );
+		AMateria( std::string const& type );
+		AMateria( const AMateria& other );
+		AMateria& operator=(const AMateria& other );
+		virtual ~AMateria( void );
 
-		std::string		getType( void ) const;
-		void			setType(const std::string& type);
-
-		virtual void	makeSound( void ) const;
+		std::string const& getType( void ) const;
+		
+		virtual AMateria* clone( void ) const = 0;
+		virtual void use(ICharacter& target);
 };
 
-#endif // ANIMAN_HPP
+#endif // AMATERIA_HPP
