@@ -6,7 +6,7 @@
 #    By: anarama <anarama@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/29 15:38:54 by anarama           #+#    #+#              #
-#    Updated: 2024/10/10 15:09:40 by anarama          ###   ########.fr        #
+#    Updated: 2024/10/11 15:57:56 by anarama          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,12 +18,13 @@ CFLAGS	:= -Wall -Wextra -Werror -std=c++98
 
 OBJDIR	:= obj
 
-HEADERS	:=	Animal.hpp Dog.hpp Cat.hpp
+HEADERS	:=	Animal.hpp Dog.hpp Cat.hpp Brain.hpp
 
 SRC		:=	main.cpp \
 			Animal.cpp \
 			Dog.cpp \
-			Cat.cpp
+			Cat.cpp \
+			Brain.cpp
 
 OBJ		:= $(SRC:%.cpp=$(OBJDIR)/%.o)
 

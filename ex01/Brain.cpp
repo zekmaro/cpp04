@@ -1,3 +1,4 @@
+#include <algorithm>
 #include <iostream>
 
 #include "Brain.hpp"
@@ -23,4 +24,16 @@ Brain& Brain::operator=( const Brain& other ) {
 
 Brain::~Brain( void ) {
 	std::cout << "Brain was destroyed!" << std::endl;
+}
+
+std::string Brain::getIdea( int index ) const {
+	if (index >= 0 && index < 20)
+		return this->_ideas[index];
+	return "";
+}
+
+void Brain::setIdea( int index, const std::string& idea) {
+	if (index >= 0 && index < 20) {
+		this->_ideas[index] = idea;
+	}
 }

@@ -5,18 +5,19 @@
 #include "Dog.hpp"
 
 int main(void) {
-	const Animal* meta = new Animal();
-	const Animal* j = new Dog();
-	const Animal* i = new Cat();
-	std::cout << j->getType() << " " << std::endl;
-	std::cout << i->getType() << " " << std::endl;
-	i->makeSound(); //will output the cat sound!
-	j->makeSound();
-	meta->makeSound();
+	Animal* animalArr[20];
 
-	delete i;
-	delete j;
-	delete meta;
-
+	for	(int i = 0; i < 10; i++) {
+		animalArr[i] = new Cat();
+	}
+	for (int i = 10; i < 20; i++) {
+		animalArr[i] = new Dog();
+	}
+	for (int i = 0; i < 20; i++) {
+		animalArr[i]->makeSound();
+	}
+	for (int i = 0; i < 20; i++) {
+		delete animalArr[i];
+	}
 	return 0;
 }

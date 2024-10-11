@@ -8,20 +8,22 @@ Dog::Dog( void ) : Animal(DEFAULT_DOG_TYPE) {
 }
 
 Dog::Dog( const Dog& other ) : Animal(other.getType()) {
-	this->dogBrain = new Brain();
+	this->dogBrain = new Brain(*other.dogBrain);
 	std::cout << "Dog was copy constructed!" << std::endl;
 }
 
 Dog& Dog::operator=( const Dog& other ) {
 	if (this != &other) {
-		this->setType(other.getType());
+		this->setType(other.getType()); 
+		delete this->dogBrain;
+		this->dogBrain = new Brain(*other.dogBrain);
 	}
 	std::cout << "A copy assignment operator overload called for Dog!" << std::endl;
 	return *this;
 }
 
 Dog::~Dog( void ) {
-	delete [] this->dogBrain;
+	delete this->dogBrain;
 	std::cout << "Dog was destroyed!" << std::endl;
 }
 
