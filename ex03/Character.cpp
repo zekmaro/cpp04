@@ -6,7 +6,7 @@
 /*   By: anarama <anarama@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/11 20:22:51 by anarama           #+#    #+#             */
-/*   Updated: 2024/10/11 23:06:18 by anarama          ###   ########.fr       */
+/*   Updated: 2024/10/12 13:25:48 by anarama          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include "Character.hpp"
 #include "AMateria.hpp"
 
-Character::Character( void ) : _name(name) {
+Character::Character( void ) {
 	for (int i = 0; i < 4; i++) {
 		this->_inventory[i] = NULL;
 	}
@@ -68,12 +68,16 @@ Character& Character::operator=( const Character& other ) {
 
 Character::~Character( void ) {
 	for (int i = 0; i < 4; i++) {
-		delete this->_inventory[i];
-		this->_inventory[i] = NULL;
+		if (this->_inventory[i] != NULL) {
+			delete this->_inventory[i];
+			this->_inventory[i] = NULL;
+		}
 	}
 	for (int i = 0; i < 10; i++) {
-		delete this->_inventory[i];
-		this->_unequiped[i] = NULL;
+		if (this->_unequiped[i] != NULL) {
+			delete this->_unequiped[i];
+			this->_unequiped[i] = NULL;			
+		}
 	}
 }
 
@@ -83,24 +87,28 @@ std::string const&	Character::getName() const {
 
 void	Character::equip(AMateria* m) {
 	int i = 0;
-	while (this->_inventory[i] != NULL) {
+	while (i < 4 && this->_inventory[i] != NULL) {
 		i++;
 	}
-	this->_inventory[i] = m->clone();
+	if (i < 4) {
+		this->_inventory[i] = m;	
+	}
 }
 
 void	Character::unequip(int idx) {
-	for (int i = 0; i < 10; i++) {
-		if (this->_unequiped[i] == NULL) {
-			break ;
-		}
+	int i = 0;
+	while (i < 10 && this->_unequiped[i] != NULL) {
+		i++;
 	}
-	int uneqIndx = i;
-	AMateria* temp = this->_inventory[idx];
-	this->_inventory[idx] = NULL;
-	this->_unequiped[uneqIndx] = temp;
+	if (i < 10 && (idx >= 0 && idx < 4)) {
+		AMateria* temp = this->_inventory[idx];
+		this->_inventory[idx] = NULL;
+		this->_unequiped[i] = temp;
+	}
 }
 
 void Character::use(int idx, ICharacter& target) {
-	this->_inventory[idx].use(target);
+	if (idx >= 0 && idx < 4) {
+		this->_inventory[idx]->use(target);
+	}
 }

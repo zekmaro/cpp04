@@ -6,7 +6,7 @@
 /*   By: anarama <anarama@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/11 19:53:50 by anarama           #+#    #+#             */
-/*   Updated: 2024/10/11 20:16:50 by anarama          ###   ########.fr       */
+/*   Updated: 2024/10/12 13:28:41 by anarama          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,19 +20,13 @@ Ice::Ice( void ) : AMateria("ice") {
 	std::cout << "Ice was default constructed!" << std::endl;
 }
 
-Ice::Ice( std::string const& type ) : AMateria(type) {
-	std::cout << "Ice was constructed with type!" << std::endl;
-}
-
-Ice::Ice( const Ice& other ) {
-	this->_type = other.getType();
+Ice::Ice( const Ice& other ) : AMateria("ice") {
+	(void) other;
 	std::cout << "Ice was copy constructed!" << std::endl;
 }
 
 Ice& Ice::operator=(const Ice& other ) {
-	if (this != &other) {
-		this->_type = other.getType();
-	}
+	(void) other;
 	std::cout << "Assignment operator overload for Ice!" << std::endl;
 	return *this;
 }
@@ -42,9 +36,9 @@ Ice::~Ice( void ) {
 }
 
 AMateria* Ice::clone( void ) const {
-	return new Ice(this->_type);
+	return new Ice();
 }
 
 void Ice::use(ICharacter& target) {
-	std::cout << "* shoots an ice bolt at <name> *" << std::endl;
+	std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
 }

@@ -6,7 +6,7 @@
 /*   By: anarama <anarama@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/11 20:02:27 by anarama           #+#    #+#             */
-/*   Updated: 2024/10/11 21:51:01 by anarama          ###   ########.fr       */
+/*   Updated: 2024/10/12 13:18:48 by anarama          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class Character : public ICharacter {
 	private:
 		AMateria* _inventory[4];
 		AMateria* _unequiped[10];
-		std::string _name;
+		std::string const _name;
 	
 	public:
 		Character( void );

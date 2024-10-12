@@ -6,7 +6,7 @@
 /*   By: anarama <anarama@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/11 22:36:01 by anarama           #+#    #+#             */
-/*   Updated: 2024/10/11 23:57:56 by anarama          ###   ########.fr       */
+/*   Updated: 2024/10/12 13:29:18 by anarama          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,11 @@
 # define MATERIASOURCE_HPP
 
 # include "AMateria.hpp"
+# include "IMateriaSource.hpp"
 
 class MateriaSource: public IMateriaSource {
 	private:
-		AMateria *_source_materias[4];
+		AMateria *_storedMaterias[4];
 
 	public:
 		MateriaSource( void );
@@ -27,6 +28,6 @@ class MateriaSource: public IMateriaSource {
 
 		void learnMateria(AMateria *m);
 		AMateria* createMateria( std::string const& type);
-}
+};
 
 #endif // MATERIASOURCE_HPP

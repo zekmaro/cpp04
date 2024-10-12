@@ -6,7 +6,7 @@
 /*   By: anarama <anarama@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/11 16:51:19 by anarama           #+#    #+#             */
-/*   Updated: 2024/10/11 17:10:45 by anarama          ###   ########.fr       */
+/*   Updated: 2024/10/12 13:31:18 by anarama          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include <string>
 
-# include "AMateria.hpp"
+class AMateria;
 
 class ICharacter {
 	public:

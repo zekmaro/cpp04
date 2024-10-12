@@ -6,7 +6,7 @@
 #    By: anarama <anarama@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/29 15:38:54 by anarama           #+#    #+#              #
-#    Updated: 2024/10/11 22:50:57 by anarama          ###   ########.fr        #
+#    Updated: 2024/10/12 14:51:54 by anarama          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ CC		:= c++
 
 NAME	:= materia
 
-CFLAGS	:= -Wall -Wextra -Werror -std=c++98
+CFLAGS	:= -Wall -Wextra -Werror -std=c++98 -g
 
 OBJDIR	:= obj
 
@@ -23,14 +23,15 @@ HEADERS	:=	AMateria.hpp \
 			Cure.hpp \
 			Ice.hpp \
 			ICharacter.hpp \
+			IMateriaSource.hpp \
 			MateriaSource.hpp
 
 SRC		:=	main.cpp \
 			AMateria.cpp \
-			ICharacter.cpp \
+			Character.cpp \
 			Cure.cpp \
 			Ice.cpp \
-			ICharacter.cpp \
+			IMateriaSource.cpp \
 			MateriaSource.cpp
 
 OBJ		:= $(SRC:%.cpp=$(OBJDIR)/%.o)

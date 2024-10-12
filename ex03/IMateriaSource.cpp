@@ -1,29 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Ice.hpp                                            :+:      :+:    :+:   */
+/*   IMateriaSource.cpp                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anarama <anarama@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/11 19:32:39 by anarama           #+#    #+#             */
-/*   Updated: 2024/10/12 12:52:53 by anarama          ###   ########.fr       */
+/*   Created: 2024/10/12 14:44:31 by anarama           #+#    #+#             */
+/*   Updated: 2024/10/12 14:48:11 by anarama          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ICE_HPP
-# define ICE_HPP
+#include <iostream>
 
-# include "AMateria.hpp"
+#include "IMateriaSource.hpp"
 
-class Ice : public AMateria {
-	public: 
-		Ice( void );
-		Ice( const Ice& other );
-		Ice& operator=( const Ice& other );
-		~Ice( void );
+IMateriaSource::~IMateriaSource( void ) {
+	std::cout << "IMateriaSource was destroyed!" << std::endl;
+}
 
-		AMateria*	clone( void ) const;
-		void		use(ICharacter& target);
-};
-
-#endif // ICE_HPP

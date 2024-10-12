@@ -6,7 +6,7 @@
 /*   By: anarama <anarama@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/11 19:32:33 by anarama           #+#    #+#             */
-/*   Updated: 2024/10/11 20:12:14 by anarama          ###   ########.fr       */
+/*   Updated: 2024/10/12 12:51:35 by anarama          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ class Cure : public AMateria {
 	public: 
 		Cure( void );
 		Cure( const Cure& other );
-		Cure( std::string const& type );
 		Cure& operator=( const Cure& other );
 		~Cure( void );
 
