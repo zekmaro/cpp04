@@ -6,7 +6,7 @@
 /*   By: anarama <anarama@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/11 16:39:07 by anarama           #+#    #+#             */
-/*   Updated: 2024/10/12 13:23:43 by anarama          ###   ########.fr       */
+/*   Updated: 2024/10/13 20:53:58 by anarama          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class ICharacter;
 
 class AMateria {
 	protected:
-		const std::string _type;
+		std::string const _type;
 
 	public:
 		AMateria( void );

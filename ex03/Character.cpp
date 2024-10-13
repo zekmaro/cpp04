@@ -6,7 +6,7 @@
 /*   By: anarama <anarama@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/11 20:22:51 by anarama           #+#    #+#             */
-/*   Updated: 2024/10/12 13:25:48 by anarama          ###   ########.fr       */
+/*   Updated: 2024/10/13 21:09:23 by anarama          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ Character::Character( const std::string& name ) : _name(name) {
 	for (int i = 0; i < 10; i++) {
 		this->_unequiped[i] = NULL;
 	}
-	std::cout << "Character was default constructed!" << std::endl;
+	std::cout << "Character was constructed with name parameter!" << std::endl;
 }
 
 Character::Character( const Character& other ) {
@@ -46,6 +46,7 @@ Character::Character( const Character& other ) {
 	for (int i = 0; i < 10; i++) {
 		this->_unequiped[i] = NULL;
 	}
+	std::cout << "Character was copy constructed!" << std::endl;
 }
 
 Character& Character::operator=( const Character& other ) {
@@ -63,6 +64,7 @@ Character& Character::operator=( const Character& other ) {
 			}
 		}
 	}
+	std::cout << "Assignment operation overload for Character!" << std::endl;
 	return *this;
 }
 
@@ -79,6 +81,7 @@ Character::~Character( void ) {
 			this->_unequiped[i] = NULL;			
 		}
 	}
+	std::cout << "Character was destroyed!" << std::endl;
 }
 
 std::string const&	Character::getName() const {
@@ -86,6 +89,9 @@ std::string const&	Character::getName() const {
 }
 
 void	Character::equip(AMateria* m) {
+	if (m == NULL) {
+		return ;
+	}
 	int i = 0;
 	while (i < 4 && this->_inventory[i] != NULL) {
 		i++;
