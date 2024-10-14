@@ -6,7 +6,7 @@
 /*   By: anarama <anarama@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/11 22:36:04 by anarama           #+#    #+#             */
-/*   Updated: 2024/10/13 21:08:31 by anarama          ###   ########.fr       */
+/*   Updated: 2024/10/14 12:01:35 by anarama          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,5 +75,6 @@ AMateria* MateriaSource::createMateria( std::string const& type) {
 			return this->_storedMaterias[i]->clone();
 		}
 	}
+	std::cout << "Unknown Materia type: " << type << std::endl;
 	return NULL;
 }

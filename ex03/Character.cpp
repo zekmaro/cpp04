@@ -6,7 +6,7 @@
 /*   By: anarama <anarama@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/11 20:22:51 by anarama           #+#    #+#             */
-/*   Updated: 2024/10/13 21:09:23 by anarama          ###   ########.fr       */
+/*   Updated: 2024/10/14 12:29:50 by anarama          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,14 +90,24 @@ std::string const&	Character::getName() const {
 
 void	Character::equip(AMateria* m) {
 	if (m == NULL) {
+		std::cout << "Trying to equip invalid materia!" << std::endl;
 		return ;
 	}
+	for (int i = 0; i < 4; ++i) {
+        if (this->_inventory[i] == m) {
+            std::cout << "This Materia is already equipped!" << std::endl;
+            return;
+        }
+    }
 	int i = 0;
 	while (i < 4 && this->_inventory[i] != NULL) {
 		i++;
 	}
 	if (i < 4) {
-		this->_inventory[i] = m;	
+        this->_inventory[i] = m;
+    } else {
+        std::cout << "Inventory is full, can't equip more Materia!" << std::endl;
+		delete m; 
 	}
 }
 
@@ -115,6 +125,11 @@ void	Character::unequip(int idx) {
 
 void Character::use(int idx, ICharacter& target) {
 	if (idx >= 0 && idx < 4) {
-		this->_inventory[idx]->use(target);
+		if (this->_inventory[idx] != NULL) {
+			this->_inventory[idx]->use(target);
+		}
+		else {
+			std::cout << "Trying to use invaliud materia!" << std::endl;
+		}
 	}
 }
